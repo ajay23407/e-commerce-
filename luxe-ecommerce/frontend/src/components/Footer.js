@@ -59,16 +59,33 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: 'X', label: 'Twitter' },
-                { icon: '◻', label: 'Instagram' },
-                { icon: 'f', label: 'Facebook' },
-                { icon: '▶', label: 'YouTube' },
-              ].map(s => (
-                <a key={s.label} href="#" title={s.label}
-                  className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-sm text-white/60 hover:border-gold hover:text-gold transition-all duration-200">
-                  {s.icon}
-                </a>
-              ))}
+  { icon: 'X', label: 'Twitter', url: '' },
+  { icon: '◻', label: 'Instagram', url: '' },
+  { icon: 'f', label: 'Facebook', url: '' },
+  { icon: '▶', label: 'YouTube', url: '' },
+].map((s) => (
+  s.url ? (
+    <a
+      key={s.label}
+      href={s.url}
+      target="_blank"
+      rel="noreferrer"
+      title={s.label}
+      className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-sm text-white/60 hover:border-gold hover:text-gold transition-all duration-200"
+    >
+      {s.icon}
+    </a>
+  ) : (
+    <button
+      key={s.label}
+      type="button"
+      title={s.label}
+      className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-sm text-white/60 hover:border-gold hover:text-gold transition-all duration-200 cursor-default"
+    >
+      {s.icon}
+    </button>
+  )
+))}
             </div>
           </div>
 
@@ -103,3 +120,4 @@ export default function Footer() {
     </footer>
   );
 }
+
