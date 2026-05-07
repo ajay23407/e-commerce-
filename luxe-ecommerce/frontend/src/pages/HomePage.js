@@ -309,14 +309,7 @@ export default function HomePage() {
     }).finally(() => setLoading(false));
   }, []);
 
-  const catGradients = {
-    women:       'from-amber-950 to-amber-800',
-    men:         'from-slate-900 to-slate-700',
-    accessories: 'from-violet-950 to-violet-800',
-    footwear:    'from-emerald-950 to-emerald-800',
-    jewellery:   'from-yellow-950 to-yellow-800',
-  };
-  const catIcons = { women:'👗', men:'👔', accessories:'👜', footwear:'👟', jewellery:'💍' };
+  
 
   const marqueeItems = ['New Arrivals','Summer Edit 2025','Free Returns','Sustainable Fashion','Members Only','Premium Brands'];
 

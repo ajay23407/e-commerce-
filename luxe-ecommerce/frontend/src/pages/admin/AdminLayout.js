@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
 const navItems = [
@@ -13,7 +13,7 @@ const navItems = [
 export default function AdminLayout() {
   const { user, logout } = useAuth();
   const location = useLocation();
-  const navigate  = useNavigate();
+  
   const [collapsed, setCollapsed] = useState(false);
 
   return (

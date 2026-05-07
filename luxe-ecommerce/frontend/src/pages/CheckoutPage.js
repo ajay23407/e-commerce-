@@ -27,15 +27,27 @@ export default function CheckoutPage() {
   const [notes, setNotes]         = useState('');
 
   useEffect(() => {
-    document.title = 'Checkout — LUXE';
-    if (!cart.items?.length) { navigate('/shop'); return; }
-    api.get('/addresses').then(r => {
+  document.title = 'Checkout — LUXE';
+
+  if (!cart.items?.length) {
+    navigate('/shop');
+    return;
+  }
+
+  api.get('/addresses')
+    .then((r) => {
       setAddresses(r.data.addresses);
-      const def = r.data.addresses.find(a => a.is_default) || r.data.addresses[0];
+
+      const def =
+        r.data.addresses.find((a) => a.is_default) ||
+        r.data.addresses[0];
+
       if (def) setSelAddr(def);
       else setNewAddr(true);
-    }).catch(() => setNewAddr(true));
-  }, []);
+    })
+    .catch(() => setNewAddr(true));
+
+}, [cart.items?.length, navigate]);
 
   const subtotal = cart.items?.reduce((s, i) => s + (i.product?.price || 0) * i.qty, 0) || 0;
   const couponDiscount = couponData?.discount || 0;

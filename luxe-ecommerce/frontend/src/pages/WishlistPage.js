@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../utils/api';
-import { useCart } from '../context/CartContext';
 import toast from 'react-hot-toast';
 
 const fmt = (n) => `₹${parseFloat(n || 0).toLocaleString('en-IN')}`;
@@ -9,7 +8,7 @@ const fmt = (n) => `₹${parseFloat(n || 0).toLocaleString('en-IN')}`;
 export default function WishlistPage() {
   const [items, setItems]     = useState([]);
   const [loading, setLoading] = useState(true);
-  const { addToCart } = useCart();
+ 
 
   useEffect(() => {
     document.title = 'Wishlist — LUXE';
