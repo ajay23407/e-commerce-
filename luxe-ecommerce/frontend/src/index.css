@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply font-sans bg-luxury-cream text-luxury-black antialiased;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,h4,h5 { @apply font-serif; }
+}
+
+@layer components {
+  /* ── BUTTONS ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3 text-xs font-medium tracking-widest uppercase transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-luxury-black text-white hover:bg-gold-dark hover:-translate-y-0.5 hover:shadow-luxury;
+  }
+  .btn-gold {
+    @apply btn bg-gold text-luxury-black hover:bg-gold-dark hover:text-white hover:shadow-gold;
+  }
+  .btn-outline {
+    @apply btn border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-white;
+  }
+  .btn-ghost {
+    @apply btn border border-gray-200 text-gray-500 hover:border-luxury-black hover:text-luxury-black;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-sm  { @apply px-4 py-2 text-[10px]; }
+  .btn-lg  { @apply px-10 py-4 text-sm; }
+  .btn-full { @apply w-full; }
+
+  /* ── INPUTS ── */
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-200 bg-white text-sm text-luxury-black placeholder-gray-300 outline-none transition-colors duration-200 focus:border-luxury-black;
+  }
+  .form-label {
+    @apply block text-[10px] font-medium tracking-widest uppercase text-gray-500 mb-1.5;
+  }
+  .form-select {
+    @apply w-full px-4 py-3 border border-gray-200 bg-white text-sm text-luxury-black outline-none transition-colors duration-200 cursor-pointer focus:border-luxury-black;
+  }
+
+  /* ── CARD ── */
+  .card { @apply bg-white border border-gray-100 p-6; }
+
+  /* ── BADGE ── */
+  .badge { @apply inline-block px-2.5 py-0.5 text-[9px] font-bold tracking-wider uppercase; }
+  .badge-new     { @apply bg-luxury-black text-white; }
+  .badge-sale    { @apply bg-red-600 text-white; }
+  .badge-limited { @apply bg-gold text-luxury-black; }
+  .badge-success { @apply bg-green-50 text-green-700; }
+  .badge-warning { @apply bg-amber-50 text-amber-700; }
+  .badge-info    { @apply bg-blue-50 text-blue-700; }
+
+  /* ── SPINNER ── */
+  .spinner {
+    @apply w-6 h-6 border-2 border-gray-200 rounded-full;
+    border-top-color: #0A0A0A;
+    animation: spin 0.7s linear infinite;
+  }
+  .spinner-sm { @apply w-4 h-4; }
+  .spinner-lg { @apply w-10 h-10 border-[3px]; }
+  .spinner-white { border-top-color: white !important; }
+  .spinner-gold  { border-top-color: #C9A84C !important; }
+
+  /* ── SECTION LABEL ── */
+  .section-eyebrow {
+    @apply flex items-center gap-3 text-[10px] font-medium tracking-[4px] uppercase text-gold mb-2;
+  }
+  .section-eyebrow::before {
+    content: '';
+    @apply w-8 h-px bg-gold flex-shrink-0;
+  }
+
+  /* ── TABLE ── */
+  .data-table { @apply w-full border-collapse; }
+  .data-table th { @apply text-left py-3 px-4 text-[10px] font-medium tracking-widest uppercase text-gray-400 border-b border-gray-200; }
+  .data-table td { @apply py-3.5 px-4 border-b border-gray-50 text-sm; }
+  .data-table tr:hover td { @apply bg-gray-50/50; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-300 rounded; }
+  ::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .font-display { font-family: 'Playfair Display', serif; }
+}
